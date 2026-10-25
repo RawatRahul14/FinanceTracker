@@ -1,0 +1,349 @@
+/* ---------- Global ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --background: #f8fafc;
+    --surface: #ffffff;
+    --text: #0f172a;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --green: #059669;
+    --red: #e11d48;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Header ---------- */
+
+header {
+    background: linear-gradient(120deg, #1e1b4b, #312e81, #4338ca);
+    color: white;
+    padding: 32px 8%;
+    border-bottom: 1px solid #ffffff15;
+}
+
+header h1 {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    margin-bottom: 4px;
+}
+
+header p {
+    color: #c7d2fe;
+    font-size: 15px;
+}
+
+/* ---------- Main Layout ---------- */
+
+main {
+    width: 84%;
+    max-width: 1500px;
+    margin: 36px auto;
+}
+
+/* ---------- Summary Cards ---------- */
+
+.summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-bottom: 28px;
+}
+
+.card {
+    background: var(--surface);
+    padding: 25px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 4px 16px #0f172a06;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px #0f172a0c;
+}
+
+.card h3 {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: clamp(22px, 2vw, 30px);
+    font-weight: 700;
+    letter-spacing: -0.7px;
+    overflow-wrap: anywhere;
+}
+
+#balance {
+    color: var(--primary);
+}
+
+#income,
+.income {
+    color: var(--green);
+}
+
+#expenses,
+.expense {
+    color: var(--red);
+}
+
+/* ---------- Content Sections ---------- */
+
+.form-section,
+.transactions {
+    background: var(--surface);
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 4px 16px #0f172a06;
+}
+
+.form-section {
+    margin-bottom: 28px;
+}
+
+h2 {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 22px;
+}
+
+/* ---------- Form ---------- */
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+input,
+select,
+button {
+    width: 100%;
+    min-width: 0;
+    padding: 13px 14px;
+    font: inherit;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+input,
+select {
+    color: var(--text);
+    background: white;
+    border: 1px solid #cbd5e1;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input::placeholder {
+    color: #94a3b8;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px #4f46e51a;
+}
+
+button {
+    background: var(--primary);
+    color: white;
+    border: 1px solid var(--primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+
+button:hover {
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+button:active {
+    transform: scale(0.99);
+}
+
+/* ---------- Transactions Header ---------- */
+
+.transaction-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.transaction-header h2 {
+    margin-bottom: 0;
+}
+
+.transaction-header select {
+    width: auto;
+    min-width: 180px;
+    cursor: pointer;
+}
+
+/* ---------- Transactions Table ---------- */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 15px 16px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+th {
+    background: #f8fafc;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    font-size: 14px;
+    color: #334155;
+}
+
+tbody tr {
+    transition: background 0.15s;
+}
+
+tbody tr:hover {
+    background: #f8faff;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ---------- Delete Button ---------- */
+
+.delete-btn {
+    width: auto;
+    padding: 7px 12px;
+    background: #fff1f2;
+    color: #be123c;
+    border: 1px solid #ffe4e6;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.delete-btn:hover {
+    background: #ffe4e6;
+    border-color: #fecdd3;
+}
+
+/* ---------- Empty State ---------- */
+
+#empty-message {
+    text-align: center;
+    color: var(--muted);
+    padding: 30px 12px;
+    font-size: 14px;
+}
+
+/* ---------- Responsive Design ---------- */
+
+@media (max-width: 900px) {
+    main {
+        width: 90%;
+    }
+
+    header {
+        padding: 28px 5%;
+    }
+
+    .form-section,
+    .transactions {
+        padding: 22px;
+    }
+
+    .summary {
+        gap: 14px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 650px) {
+    header h1 {
+        font-size: 25px;
+    }
+
+    main {
+        width: 92%;
+        margin: 22px auto;
+    }
+
+    .summary {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .form-section,
+    .transactions {
+        padding: 18px;
+        border-radius: 11px;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .transaction-header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .transaction-header select {
+        width: 100%;
+    }
+
+    th,
+    td {
+        padding: 12px;
+    }
+}
